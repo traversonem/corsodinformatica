@@ -1,10 +1,16 @@
 <?php
 
+require "Person.php";
+require "Course.php";
+require "DigitalUser.php";
+
 class Student implements Person {
     private $name;
     private $age;
     private $courses = array();
-
+    
+    use DigitalUser;
+    
     public function __construct ($name,$age,$email,$courses=[]){
             $this->name=$name;
             $this->age=$age;
@@ -12,7 +18,7 @@ class Student implements Person {
             $this->courses=$courses; //NOCIIIIIIIIIIIIIIIIII
     } 
     public function __toString(){
-        return $this->name.$this->age.$this->email;
+        return "Nome: ".$this->name."<br>Età: ".$this->age."<br>Email: ".$this->email."<br>";
     }
     public function getCourses(){
         return $this->courses;   
