@@ -1,8 +1,5 @@
 <?php
-
-require "Person.php";
-require "Course.php";
-require "DigitalUser.php";
+namespace Users;
 
 class Student implements Person {
     private $name;
@@ -15,16 +12,20 @@ class Student implements Person {
             $this->name=$name;
             $this->age=$age;
             $this->email=$email;
-            $this->courses=$courses; //NOCIIIIIIIIIIIIIIIIII
+            $this->courses=$courses; 
     } 
     public function __toString(){
-        return "Nome: ".$this->name."<br>Età: ".$this->age."<br>Email: ".$this->email."<br>";
+        $courses="";
+        foreach($this->courses as $course){
+            $courses = $courses."<br>".$course;
+        }
+        return "Nome: ".$this->name."<br>Età: ".$this->age."<br>Email: ".$this->email.$courses;
     }
     public function getCourses(){
         return $this->courses;   
     }
-    public function addCourse(Course $s){
-        array_push($this->courses,$s);
+    public function addCourse(Course $c){
+        array_push($this->courses,$c);
     }
     public function resetCourses(){
         return $this->courses=array();
@@ -41,4 +42,6 @@ class Student implements Person {
     function setAge($age){
         $this->age=$age;
     }
+    
+
 }

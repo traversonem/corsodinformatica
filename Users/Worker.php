@@ -1,10 +1,12 @@
 <?php
-require "Person.php";
+namespace Users;
 
 abstract class Worker implements Person {
     private $company;
-    public function getCompany();
-    protected function setCompany($c);
+    public function getCompany(){
+    }
+    protected function setCompany($c){
+    }
     
     function getName(){
         return $this->name;

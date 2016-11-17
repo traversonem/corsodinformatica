@@ -1,14 +1,13 @@
 <?php
-    require "Student.php";
+namespace Users;
 
 trait DigitalUser {
     private $email;
     
-    use Student;
     public function getEmail(){  
-        
+        return $this->email;
     }
     public function setEmail($email){
-        
+        $this->email=$email;
     }
 }
