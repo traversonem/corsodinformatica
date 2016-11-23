@@ -1,11 +1,14 @@
 <?php
-namespace Users;
+namespace Models\Users;
 
 class Course {
-    private $name;
-    private $hours;
+    protected $name;
+    protected $hours;
     
-    public function __construct($name,$hours) {
+    const TABLE_NAME= "course";
+    
+    public function __construct($name="",$hours="") {
+        
         $this->name=$name;
         $this->hours=$hours;
     }
